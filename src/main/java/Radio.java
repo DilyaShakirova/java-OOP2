@@ -46,15 +46,13 @@ public class Radio {
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation < 9 & currentRadioStation>=0) currentRadioStation = currentRadioStation + 1;
-        else if (currentRadioStation<0 || currentRadioStation==9)currentRadioStation=0;
-        else currentRadioStation=1;
+        if (currentRadioStation < 9) currentRadioStation = currentRadioStation + 1;
+        else currentRadioStation=0;
     }
 
     public void decreaseRadioStation() {
-        if (currentRadioStation <= 9 & currentRadioStation>0) currentRadioStation = currentRadioStation - 1;
-        else if (currentRadioStation>9 || currentRadioStation==0)currentRadioStation=9;
-        else currentRadioStation=8;
+        if (currentRadioStation>0) currentRadioStation = currentRadioStation - 1;
+        else currentRadioStation=9;
     }
 
 }
