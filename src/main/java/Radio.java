@@ -1,58 +1,69 @@
 public class Radio {
     private int currentRadioStation;
     private int currentVolume;
+    private int minVolume;
+    private int maxVolume=100;
+    private  int numberRadioStations=10;
+    private int maxRadioStation=numberRadioStations-1;
+
+    public Radio(int numberRadioStations){
+        this.numberRadioStations=numberRadioStations;
+        this.maxRadioStation=numberRadioStations-1;
+    }
+
+    public Radio(){
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 100) {
-            currentVolume = 100;
+        if (newCurrentVolume > maxVolume) {
+            currentVolume = maxVolume;
             return;
         }
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
 
-    public int getCurrentRadioStation() {
+public int getCurrentRadioStation(){
         return currentRadioStation;
-    }
-
+}
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation >maxRadioStation) {
             currentRadioStation = 0;
             return;
         }
         if (newCurrentRadioStation < 0) {
-            currentRadioStation = 9;
+            currentRadioStation = maxRadioStation ;
             return;
         }
         currentRadioStation = newCurrentRadioStation;
     }
 
     public void increaseRadioStation() {
-        if (currentRadioStation < 9) currentRadioStation = currentRadioStation + 1;
+        if (currentRadioStation < maxRadioStation) currentRadioStation = currentRadioStation + 1;
         else currentRadioStation = 0;
     }
 
     public void decreaseRadioStation() {
         if (currentRadioStation > 0) currentRadioStation = currentRadioStation - 1;
-        else currentRadioStation = 9;
+        else currentRadioStation = maxRadioStation;
     }
 
 }
